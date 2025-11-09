@@ -1,52 +1,87 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="style.css">
-  <title>Document</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <!-- Enlace a Font Awesome para los íconos -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <title>Servidor HTTP - Panel de Pruebas</title>
 </head>
 
 <body>
-  <h1>Bienvenido a nuestro servidor HTTP.</h1>
-  
-  <div class="get-otraPagina">
-    <p>Prueba método GET a otra página existente</p>
-    <a href="/test.html">Ir a la página Test</a>
-  </div>
+    <div class="container">
 
-  <div class="prueba-queryParams">
-    <h2>Prueba de Query Parameters</h2>
-    <form id="queryForm" method="GET">
-      <label for="param1">Parámetro 1:</label>
-      <input type="text" name="param1" id="param1" required><br><br>
-      
-      <label for="param2">Parámetro 2:</label>
-      <input type="text" name="param2" id="param2" required><br><br>
-      
-      <button type="submit">Enviar</button>
-    </form>
-  </div>
+        <h1>Servidor HTTP: Panel de Pruebas y Métodos</h1>
+       <div class="primer-contenedor">
+        <div class="imagen-container"> 
+        <div><img class="imagen" src="imagen.png"></div>
+        </div>
+        <div class="nombres">
+          <p>Desarrollado por: La Terra, Juan - Mello da Silva, Soledad </p>
+      </div>
+      </div>
+    
 
-  <div class="prueba-post">
-    <h2>Prueba de POST</h2>
-    <form id="miFormulario" method="POST">
-      <label for="nombre">Nombre:</label>
-      <input type="text" name="nombre" id="nombre" required><br><br>
-      
-      <label for="mensaje">Mensaje:</label>
-      <input type="text" name="mensaje" id="mensaje" required><br><br>
-      
-      <button type="submit">Enviar</button>
-    </form>
-  </div>
+        <!-- SECCIÓN 1: GET a otra página -->
+        <div class="bloque get-otraPagina">
+            <h3><i class="fas fa-arrow-circle-right"></i> Prueba GET a Otra Página</h3>
+            <p>Verifica que el enrutamiento estático funcione correctamente.</p>
+            <a href="/test.html" class="button btn-info">Ir a la página Test (<code>/test.html</code>)</a>
+        </div>
 
-  <div class="prueba-pagina-inexistente">
-    <h2>Prueba de Página Inexistente</h2>
-    <a href="/pagina-que-no-existe.html">Ir a una página que no existe</a>
-  </div>
+        <!-- SECCIÓN 2: Query Parameters (GET) -->
+        <div class="bloque prueba-queryParams">
+            <h3><i class="fas fa-search"></i> Prueba de Query Parameters (Log)</h3>
+            <p>Envía datos mediante la URL (Query String) y verifica el log del servidor.</p>
+            <form id="queryForm" method="GET">
+                <label for="param1">Parámetro 1:</label>
+                <input type="text" name="param1" id="param1" value="user_id" required>
+                
+                <label for="param2">Parámetro 2:</label>
+                <input type="text" name="param2" id="param2" value="12345" required>
+                
+                <button type="submit" class="button btn-primary">Enviar GET</button>
+            </form>
+        </div>
+
+        <!-- SECCIÓN 3: Solicitar Archivo Estático (GET Directo) -->
+        <div class='bloque file-request-bloque'>
+            <h3><i class='fas fa-file-alt'></i> Solicitar Archivo Estático</h3>
+            <p>Ingresa una ruta para solicitar un archivo (ej: <code>style.css</code>) o probá un recurso inexistente.</p>
+            
+            <form action="/" method="GET" onsubmit="event.preventDefault(); window.location.href = '/' + document.getElementById('filename-input').value;">
+                
+                <label for='filename-input'>Ruta Solicitada:</label>
+                <input type="text" id="filename-input" value="style.css" placeholder="ej: style.css o archivo.html" required>
+                <button type="submit" class="button btn-success">Solicitar Archivo (GET)</button>
+            </form>
+        </div>
+
+        <!-- SECCIÓN 4: Prueba de POST -->
+        <div class="bloque prueba-post">
+            <h3><i class="fas fa-paper-plane"></i> Prueba de POST (Redirección 302)</h3>
+            <p>Envía datos al servidor. Si es exitoso, el servidor debe responder con una redirección (código 302) a <code>/</code>.</p>
+            <form id="miFormulario" method="POST">
+                <label for="nombre">Nombre:</label>
+                <input type="text" name="nombre" id="nombre" required>
+                
+                <label for="mensaje">Mensaje:</label>
+                <input type="text" name="mensaje" id="mensaje" required>
+                
+                <button type="submit" class="button btn-warning">Enviar POST</button>
+            </form>
+        </div>
+
+        <!-- SECCIÓN 5: Prueba de Página Inexistente (404) -->
+        <div class="bloque prueba-pagina-inexistente">
+            <h3><i class="fas fa-exclamation-triangle"></i> Prueba de Error 404</h3>
+            <p>Verifica que el servidor devuelva la página de error 404 personalizada.</p>
+            <a href="/pagina-que-no-existe.html" class="button btn-danger">Ir a una página que no existe</a>
+        </div>
+
+    </div>
 </body>
 <script src="script.js"></script>
-
 </html>

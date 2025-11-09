@@ -42,7 +42,7 @@ public class HttpServer
         _listener.Bind(new IPEndPoint(IPAddress.Any, _port));
         _listener.Listen(100); // backlog
 
-        Console.WriteLine($"Servidor escuchando en puerto {_port}...");
+        Console.WriteLine($"Servidor escuchando en puerto {_port}... http://localhost:{_port}");
 
         while (true)
         {
@@ -70,7 +70,7 @@ public class HttpServer
         var remote = clientSocket.RemoteEndPoint as IPEndPoint;
         string clientIp = remote?.Address.ToString() ?? "unknown";
 
-        // 🔐 Validación de seguridad: evitar acceso fuera de wwwroot
+        //  Validación de seguridad: evitar acceso fuera de wwwroot
         string fullPath = Path.GetFullPath(filePath);
         string rootPath = Path.GetFullPath(_rootDirectory);
 
@@ -157,4 +157,5 @@ Status:      {status}
             File.AppendAllText(logFile, log);
         }
     }
+    
 }

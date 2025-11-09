@@ -8,19 +8,19 @@
     "net9.0": []
   },
   "packageFolders": {
-    "C:\\Users\\juanj\\.nuget\\packages\\": {}
+    "/home/user/.nuget/packages/": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\proyectos\\programacion-redes\\ServidorHTTP\\ServidorHTTP.csproj",
+      "projectUniqueName": "/home/user/servidorHTTP/ServidorHTTP.csproj",
       "projectName": "ServidorHTTP",
-      "projectPath": "C:\\proyectos\\programacion-redes\\ServidorHTTP\\ServidorHTTP.csproj",
-      "packagesPath": "C:\\Users\\juanj\\.nuget\\packages\\",
-      "outputPath": "C:\\proyectos\\programacion-redes\\ServidorHTTP\\obj\\",
+      "projectPath": "/home/user/servidorHTTP/ServidorHTTP.csproj",
+      "packagesPath": "/home/user/.nuget/packages/",
+      "outputPath": "/home/user/servidorHTTP/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\juanj\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        "/home/user/.nuget/NuGet/NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net9.0"
@@ -65,7 +65,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.306/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "/nix/store/8igdvxc9vmy81y0hrkxlndmqq4x22z5l-dotnet-sdk-9.0.306/share/dotnet/sdk/9.0.306/PortableRuntimeIdentifierGraph.json"
       }
     }
   }

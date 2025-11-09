@@ -1,13 +1,40 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>404 Not Found</title>
+    <title>404 - Recurso No Encontrado</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
+
 <body>
-    <h1>404 Not Found</h1>
-    <p>Lo sentimos, la página que estás buscando no existe.</p>
-    <a href="/">Volver a la página de inicio</a>
+   
+    <div class="container">
+        
+       
+        <h1 style="color: var(--btn-danger);">Error 404</h1>
+        
+       
+        <div class="test-div" style="border-left: 5px solid var(--btn-danger);">
+            <h3 style="color: var(--btn-danger);"><i class="fas fa-exclamation-triangle"></i> Recurso No Encontrado</h3>
+            
+            <p style="font-size: 1.2em; font-weight: bold; color: var(--text-color);">
+                Lo sentimos, la página que estás buscando no existe.
+            </p>
+            
+            <p style="color: var(--text-medium);">
+                Tu servidor HTTP ha devuelto el código de estado 404.
+            </p>
+        </div>
+
+      
+        <a href="/" class="button btn-info" style="width: auto; margin: 20px auto; display: block; max-width: 300px;">
+            <i class="fas fa-arrow-left"></i> Volver al Inicio
+        </a>
+
+    </div>
 </body>
+
 </html>
