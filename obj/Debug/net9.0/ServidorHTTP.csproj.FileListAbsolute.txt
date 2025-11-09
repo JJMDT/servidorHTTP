@@ -12,3 +12,4 @@ C:\proyectos\programacion-redes\ServidorHTTP\obj\Debug\net9.0\refint\ServidorHTT
 C:\proyectos\programacion-redes\ServidorHTTP\obj\Debug\net9.0\ServidorHTTP.pdb
 C:\proyectos\programacion-redes\ServidorHTTP\obj\Debug\net9.0\ServidorHTTP.genruntimeconfig.cache
 C:\proyectos\programacion-redes\ServidorHTTP\obj\Debug\net9.0\ref\ServidorHTTP.dll
+C:\proyectos\programacion-redes\ServidorHTTP\obj\Debug\net9.0\ServidorHTTP.sourcelink.json
