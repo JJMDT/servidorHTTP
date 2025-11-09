@@ -110,7 +110,7 @@ public class HttpServer
             // Comprimir solo tipos de texto para simplificar
             bool shouldCompress = contentType.StartsWith("text/") || contentType == "application/javascript";
 
-            byte[] response = HttpResponse.Build(200, contentType, content, compress: shouldCompress);
+            byte[] response = HttpResponse.Build(200, contentType, content, compress: shouldCompress,filePathForLog:path);
             await clientSocket.SendAsync(response, SocketFlags.None);
 
             LogRequest(clientIp, method, url, queryParams, body, filePath, 200, sessionId);
