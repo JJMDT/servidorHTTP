@@ -1,0 +1,14 @@
+C:\proyectos\programacion-redes\ServidorHTTP\bin\Debug\net9.0\ServidorHTTP.exe
+C:\proyectos\programacion-redes\ServidorHTTP\bin\Debug\net9.0\ServidorHTTP.deps.json
+C:\proyectos\programacion-redes\ServidorHTTP\bin\Debug\net9.0\ServidorHTTP.runtimeconfig.json
+C:\proyectos\programacion-redes\ServidorHTTP\bin\Debug\net9.0\ServidorHTTP.dll
+C:\proyectos\programacion-redes\ServidorHTTP\bin\Debug\net9.0\ServidorHTTP.pdb
+C:\proyectos\programacion-redes\ServidorHTTP\obj\Debug\net9.0\ServidorHTTP.GeneratedMSBuildEditorConfig.editorconfig
+C:\proyectos\programacion-redes\ServidorHTTP\obj\Debug\net9.0\ServidorHTTP.AssemblyInfoInputs.cache
+C:\proyectos\programacion-redes\ServidorHTTP\obj\Debug\net9.0\ServidorHTTP.AssemblyInfo.cs
+C:\proyectos\programacion-redes\ServidorHTTP\obj\Debug\net9.0\ServidorHTTP.csproj.CoreCompileInputs.cache
+C:\proyectos\programacion-redes\ServidorHTTP\obj\Debug\net9.0\ServidorHTTP.dll
+C:\proyectos\programacion-redes\ServidorHTTP\obj\Debug\net9.0\refint\ServidorHTTP.dll
+C:\proyectos\programacion-redes\ServidorHTTP\obj\Debug\net9.0\ServidorHTTP.pdb
+C:\proyectos\programacion-redes\ServidorHTTP\obj\Debug\net9.0\ServidorHTTP.genruntimeconfig.cache
+C:\proyectos\programacion-redes\ServidorHTTP\obj\Debug\net9.0\ref\ServidorHTTP.dll
