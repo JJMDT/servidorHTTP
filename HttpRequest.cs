@@ -23,13 +23,13 @@ public class HttpRequest
 
         Method = tokens[0];
 
-        // Separar ruta y parámetros
+        
         string fullUrl = tokens[1];
         string[] urlParts = fullUrl.Split('?');
         Url = urlParts[0];
         QueryParams = urlParts.Length > 1 ? urlParts[1] : "-";
 
-        // Extraer cuerpo si es POST
+        
         Body = Method == "POST"
             ? WebUtility.UrlDecode(rawRequest.Split("\r\n\r\n").LastOrDefault() ?? "-")
             : "-";

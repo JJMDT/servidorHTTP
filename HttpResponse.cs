@@ -3,17 +3,17 @@ using System.Text;
 
 public class HttpResponse
 {
-    // extraHeaders: llave -> valor (por ejemplo: Location -> /)
+   
     public static byte[] Build(int statusCode, string contentType, byte[] body, bool compress = false, System.Collections.Generic.IDictionary<string, string>? extraHeaders = null, string filePathForLog = "")
     {
-        // 1. Prepara las variables para la función Compress
+        
         byte[] finalBody;
         int originalSize = body.Length;
         int compressedSize = 0;
 
         if (compress)
         {
-            // Llama a la versión corregida de Compress
+            
             finalBody = Compress(body, filePathForLog, originalSize, out compressedSize);
         }
         else
@@ -21,7 +21,7 @@ public class HttpResponse
             finalBody = body;
         }
 
-        // 2. Continúa con la construcción de la cabecera
+        
         string statusText = statusCode switch
         {
             200 => "OK",
@@ -51,11 +51,11 @@ public class HttpResponse
         return headerBytes.Concat(finalBody).ToArray();
     }
 
-    // Método corregido: Ahora recibe los datos del log y usa 'out' para el tamaño comprimido.
+    
     private static byte[] Compress(byte[] data, string path, int originalSize, out int compressedSize)
     {
         using var output = new MemoryStream();
-        // GZipStream must be disposed (or closed) before reading the underlying MemoryStream
+        
         using (var gzip = new GZipStream(output, CompressionLevel.Fastest, leaveOpen: true))
         {
             gzip.Write(data, 0, data.Length);

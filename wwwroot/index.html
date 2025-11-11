@@ -5,8 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
-    <!-- Enlace a Font Awesome para los íconos -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <title>Servidor HTTP - Panel de Pruebas</title>
 </head>
 
@@ -24,14 +23,14 @@
       </div>
     
 
-        <!-- SECCIÓN 1: GET a otra página -->
+        
         <div class="bloque get-otraPagina">
             <h3><i class="fas fa-arrow-circle-right"></i> Prueba GET a Otra Página</h3>
             <p>Verifica que el enrutamiento estático funcione correctamente.</p>
             <a href="/test.html" class="button btn-info">Ir a la página Test (<code>/test.html</code>)</a>
         </div>
 
-        <!-- SECCIÓN 2: Query Parameters (GET) -->
+        
         <div class="bloque prueba-queryParams">
             <h3><i class="fas fa-search"></i> Prueba de Query Parameters (Log)</h3>
             <p>Envía datos mediante la URL (Query String) y verifica el log del servidor.</p>
@@ -46,7 +45,7 @@
             </form>
         </div>
 
-        <!-- SECCIÓN 3: Solicitar Archivo Estático (GET Directo) -->
+       
         <div class='bloque file-request-bloque'>
             <h3><i class='fas fa-file-alt'></i> Solicitar Archivo Estático</h3>
             <p>Ingresa una ruta para solicitar un archivo (ej: <code>style.css</code>) o probá un recurso inexistente.</p>
@@ -59,7 +58,7 @@
             </form>
         </div>
 
-        <!-- SECCIÓN 4: Prueba de POST -->
+        
         <div class="bloque prueba-post">
             <h3><i class="fas fa-paper-plane"></i> Prueba de POST (Redirección 302)</h3>
             <p>Envía datos al servidor. Si es exitoso, el servidor debe responder con una redirección (código 302) a <code>/</code>.</p>
@@ -74,7 +73,7 @@
             </form>
         </div>
 
-        <!-- SECCIÓN 5: Prueba de Página Inexistente (404) -->
+       
         <div class="bloque prueba-pagina-inexistente">
             <h3><i class="fas fa-exclamation-triangle"></i> Prueba de Error 404</h3>
             <p>Verifica que el servidor devuelva la página de error 404 personalizada.</p>

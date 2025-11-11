@@ -1,0 +1,165 @@
+
+Fecha:       2025-11-11 00:22:25
+IP:          127.0.0.1
+Método:      GET
+Recurso:     /
+Query:       -
+Body:        -
+Servido:     wwwroot/index.html
+Status:      200
+------------------------------
+
+
+Fecha:       2025-11-11 00:22:25
+IP:          127.0.0.1
+Método:      GET
+Recurso:     /style.css
+Query:       -
+Body:        -
+Servido:     wwwroot/style.css
+Status:      200
+------------------------------
+
+
+Fecha:       2025-11-11 00:22:25
+IP:          127.0.0.1
+Método:      GET
+Recurso:     /script.js
+Query:       -
+Body:        -
+Servido:     wwwroot/script.js
+Status:      200
+------------------------------
+
+
+Fecha:       2025-11-11 00:22:25
+IP:          127.0.0.1
+Método:      GET
+Recurso:     /imagen.png
+Query:       -
+Body:        -
+Servido:     wwwroot/imagen.png
+Status:      200
+------------------------------
+
+
+Fecha:       2025-11-11 00:23:16
+IP:          127.0.0.1
+Método:      GET
+Recurso:     /style.css
+Query:       -
+Body:        -
+Servido:     wwwroot/style.css
+Status:      200
+------------------------------
+
+
+Fecha:       2025-11-11 00:23:26
+IP:          127.0.0.1
+Método:      GET
+Recurso:     /
+Query:       -
+Body:        -
+Servido:     wwwroot/index.html
+Status:      200
+------------------------------
+
+
+Fecha:       2025-11-11 00:23:26
+IP:          127.0.0.1
+Método:      GET
+Recurso:     /imagen.png
+Query:       -
+Body:        -
+Servido:     wwwroot/imagen.png
+Status:      200
+------------------------------
+
+
+Fecha:       2025-11-11 00:23:26
+IP:          127.0.0.1
+Método:      GET
+Recurso:     /style.css
+Query:       -
+Body:        -
+Servido:     wwwroot/style.css
+Status:      200
+------------------------------
+
+
+Fecha:       2025-11-11 00:23:26
+IP:          127.0.0.1
+Método:      GET
+Recurso:     /script.js
+Query:       -
+Body:        -
+Servido:     wwwroot/script.js
+Status:      200
+------------------------------
+
+
+Fecha:       2025-11-11 00:24:16
+IP:          127.0.0.1
+Método:      GET
+Recurso:     /pagina-que-no-existe.html
+Query:       -
+Body:        -
+Servido:     wwwroot/404.html
+Status:      404
+------------------------------
+
+
+Fecha:       2025-11-11 00:24:17
+IP:          127.0.0.1
+Método:      GET
+Recurso:     /style.css
+Query:       -
+Body:        -
+Servido:     wwwroot/style.css
+Status:      200
+------------------------------
+
+
+Fecha:       2025-11-11 00:24:23
+IP:          127.0.0.1
+Método:      GET
+Recurso:     /
+Query:       -
+Body:        -
+Servido:     wwwroot/index.html
+Status:      200
+------------------------------
+
+
+Fecha:       2025-11-11 00:24:23
+IP:          127.0.0.1
+Método:      GET
+Recurso:     /style.css
+Query:       -
+Body:        -
+Servido:     wwwroot/style.css
+Status:      200
+------------------------------
+
+
+Fecha:       2025-11-11 00:24:23
+IP:          127.0.0.1
+Método:      GET
+Recurso:     /script.js
+Query:       -
+Body:        -
+Servido:     wwwroot/script.js
+Status:      200
+------------------------------
+
+
+Fecha:       2025-11-11 00:24:23
+IP:          127.0.0.1
+Método:      GET
+Recurso:     /imagen.png
+Query:       -
+Body:        -
+Servido:     wwwroot/imagen.png
+Status:      200
+------------------------------
+

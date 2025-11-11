@@ -16,7 +16,6 @@ public class HttpServer
         _rootDirectory = rootDirectory;
     }
 
-    // Mapea extensiones simples a content-types. Mantenerlo pequeño y fácil de explicar.
     private string GetContentType(string path)
     {
         string ext = Path.GetExtension(path).ToLowerInvariant();
@@ -40,20 +39,20 @@ public class HttpServer
     {
         _listener = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
         _listener.Bind(new IPEndPoint(IPAddress.Any, _port));
-        _listener.Listen(100); // backlog
+        _listener.Listen(100); 
 
         Console.WriteLine($"Servidor escuchando en puerto {_port}... http://localhost:{_port}");
 
         while (true)
         {
             Socket clientSocket = await _listener.AcceptAsync();
-            _ = HandleClientRequestAsync(clientSocket); // concurrente
+            _ = HandleClientRequestAsync(clientSocket); 
         }
     }
 
     private async Task HandleClientRequestAsync(Socket clientSocket)
     {
-        string sessionId = Guid.NewGuid().ToString().Substring(0, 8); // ejemplo: "a1b2c3d4"
+        string sessionId = Guid.NewGuid().ToString().Substring(0, 8); 
         var buffer = new byte[8192];
         int received = await clientSocket.ReceiveAsync(buffer, SocketFlags.None);
         string requestText = Encoding.UTF8.GetString(buffer, 0, received);
@@ -70,7 +69,7 @@ public class HttpServer
         var remote = clientSocket.RemoteEndPoint as IPEndPoint;
         string clientIp = remote?.Address.ToString() ?? "unknown";
 
-        //  Validación de seguridad: evitar acceso fuera de wwwroot
+        
         string fullPath = Path.GetFullPath(filePath);
         string rootPath = Path.GetFullPath(_rootDirectory);
 
@@ -88,10 +87,10 @@ public class HttpServer
         {
             Console.WriteLine($"POST Body: {body}");
 
-            // Registrar la petición POST
+            // Registra la petición POST
             LogRequest(clientIp, method, url, queryParams, body, "-", 200, sessionId);
 
-            // Respuesta simple: 302 Found con Location: / para que el cliente haga GET a index
+           
             string redirect = "HTTP/1.1 302 Found\r\nLocation: /\r\nContent-Length: 0\r\n\r\n";
             byte[] redirectBytes = Encoding.UTF8.GetBytes(redirect);
             await clientSocket.SendAsync(redirectBytes, SocketFlags.None);
@@ -104,10 +103,10 @@ public class HttpServer
         {
             byte[] content = File.ReadAllBytes(filePath);
 
-            // Determinar Content-Type por extensión
+            
             string contentType = GetContentType(filePath);
 
-            // Comprimir solo tipos de texto para simplificar
+            
             bool shouldCompress = contentType.StartsWith("text/") || contentType == "application/javascript";
 
             byte[] response = HttpResponse.Build(200, contentType, content, compress: shouldCompress,filePathForLog:path);
