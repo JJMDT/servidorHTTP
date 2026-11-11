@@ -1,0 +1,213 @@
+1. Qué contiene el proyecto
+Los archivos principales son:
+
+Program.cs: punto de entrada de la aplicación.
+HttpServer.cs: abre el puerto, acepta conexiones y decide cómo responder.
+HttpRequest.cs: interpreta la solicitud HTTP recibida.
+HttpResponse.cs: construye las respuestas HTTP y aplica compresión GZIP.
+ServerConfig.cs: representa la configuración.
+config.json: define el puerto y la carpeta pública.
+wwwroot/: contiene los archivos que el servidor entrega al navegador.
+logs/: guarda las solicitudes recibidas.
+ServidorHTTP.csproj: indica que es una aplicación ejecutable para .NET 9.
+
+La configuración actual es:
+{
+    "Port": 8000,
+    "RootDirectory": "wwwroot"
+}
+
+Por lo tanto, el servidor escucha en:
+http://localhost:8000
+
+
+2. Cómo funciona cuando lo ejecutás
+El flujo general es:
+
+Ejecutás el programa
+        ↓
+Program.cs lee config.json
+        ↓
+Se crea un HttpServer
+        ↓
+HttpServer abre el puerto 8000
+        ↓
+El navegador hace una solicitud
+        ↓
+HttpRequest interpreta la solicitud
+        ↓
+HttpServer busca el archivo dentro de wwwroot
+        ↓
+HttpResponse construye la respuesta
+        ↓
+El navegador recibe HTML, CSS, JS o una imagen
+        ↓
+La solicitud se registra en logs/
+
+Por ejemplo, cuando entrás a:http://localhost:8000/
+
+El servidor transforma internamente / en: /index.html
+
+Y busca este archivo:wwwroot/index.html
+
+Cuando entrás a:http://localhost:8000/test.html
+
+Busca:wwwroot/test.html
+
+Si el archivo no existe, devuelve:404 Not Found
+y sirve 404.html.
+
+
+3. Cómo ejecutar tu proyecto actualmente
+Tenés instalado .NET 9 y el proyecto compila correctamente.
+
+Abrí PowerShell 
+
+También podés abrir esa carpeta desde Visual Studio Code y usar la terminal integrada.
+
+Paso 1: restaurar dependencias
+Aunque este proyecto no tiene paquetes externos, podés ejecutar:dotnet restore
+
+Paso 2: compilar
+dotnet build
+
+La compilación actual da:
+Compilación correcta.
+0 Advertencias
+0 Errores
+
+Paso 3: ejecutar
+dotnet run
+
+Deberías ver en la consola:
+Servidor escuchando en puerto 8000... http://localhost:8000
+
+
+Paso 4: abrirlo en el navegador
+Entrá a:
+http://localhost:8000/index.html
+
+Paso 5: detenerlo
+En la terminal donde está corriendo: Ctrl + C
+
+
+4. Qué podés probar desde la página
+La página principal index.html funciona como panel de pruebas.
+
+GET a otra página
+El botón de /test.html verifica que el servidor pueda entregar otra página estática.
+
+Query parameters
+El formulario genera una URL similar a:/?param1=user_id&param2=12345
+
+Tu clase HttpRequest.cs separa:
+URL: /
+QueryParams: param1=user_id&param2=12345
+
+
+Los valores aparecen en el archivo de log del día.
+
+Solicitud de archivos
+Podés solicitar manualmente:
+http://localhost:8000/style.css
+http://localhost:8000/script.js
+http://localhost:8000/imagen.png
+
+POST
+El formulario POST envía datos como: nombre=Juan&mensaje=Hola
+
+El servidor:
+
+Lee el cuerpo.
+Lo muestra en la consola.
+Lo registra en el log.
+Responde con 302 Found.
+Redirecciona nuevamente a /.
+Error 404
+Al entrar a una ruta inexistente, por ejemplo:http://localhost:8000/no-existe.html
+
+el servidor responde con:HTTP/1.1 404 Not Found
+y entrega 404.html.
+
+5. Dónde se guardan los logs
+Los logs se generan en:logs\log_2026-10-28.txt
+
+El nombre depende del día en que se ejecuta el servidor.
+
+Un registro tiene una estructura similar a:
+
+Fecha:       2025-11-11 00:22:25
+IP:          127.0.0.1
+Método:      GET
+Recurso:     /
+Query:       -
+Body:        -
+Servido:     wwwroot/index.html
+Status:      200
+
+
+El log muestra:
+
+Fecha y hora.
+IP del cliente.
+Método HTTP.
+Recurso solicitado.
+Parámetros de consulta.
+Cuerpo del POST.
+Archivo servido.
+Código HTTP devuelto.
+
+
+6. Qué hace cada parte internamente
+Program.cs
+Lee el archivo de configuración:
+
+string configText = File.ReadAllText("config.json");
+var config = JsonSerializer.Deserialize<ServerConfig>(configText);
+
+Después crea el servidor:
+var server = new HttpServer(config.Port, config.RootDirectory);
+await server.StartAsync();
+
+
+HttpServer.cs
+Crea un socket TCP:
+
+_listener = new Socket(
+    AddressFamily.InterNetwork,
+    SocketType.Stream,
+    ProtocolType.Tcp
+);
+
+Lo asocia al puerto configurado:
+
+_listener.Bind(new IPEndPoint(IPAddress.Any, _port));
+
+Y empieza a escuchar:
+
+_listener.Listen(100);
+
+Después acepta clientes continuamente:
+
+while (true)
+{
+    Socket clientSocket = await _listener.AcceptAsync();
+    _ = HandleClientRequestAsync(clientSocket);
+}
+
+HttpRequest.cs
+Interpreta la primera línea de una solicitud:
+
+GET /index.html HTTP/1.1
+
+Y extrae:
+
+Method: GET
+Url: /index.html
+QueryParams: -
+
+
+En un POST también intenta extraer el cuerpo.
+
+HttpResponse.cs
+Construye respuestas como:
